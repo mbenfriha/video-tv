@@ -1,10 +1,10 @@
 /*
-Theme Name: Linsolite by Benfriha Mohamed v2.2.3
-Theme URI: https://linsolite.tv
+Theme Name: Video TV by Benfriha Mohamed v1.0
+Theme URI: https://mohamedbenfriha.me
 Author: Benfriha Mohamed
-Author URI: https://linsolite.tv
-Description: Theme for Linsolite.tv
-Version: 2.2.3
+Author URI: https://mohamedbenfriha.me
+Description: A theme video streaming for wordpress / example : http://linsolite.Tv
+Version: 1.0
 
 */
 
@@ -160,6 +160,16 @@ body {
     height: 70px;
 }
 
+.head-blue:after {
+    height: 70px;
+    position: absolute;
+    top: 0;
+    background-color: #2196f3;
+    opacity: 0.4;
+    width: 100%;
+    content: ' ';
+}
+
 .nav {
     position: relative;
     background-color: #E1E1E1;
@@ -223,13 +233,20 @@ body {
 
 
 .logo {
-    width: 400px;
+    width: 10em;
     margin: 0 auto;
-    margin-top: -5.7%;
+    margin-top: -3.7%;
+    height: 10rem;
 }
 
 .logo img {
-    width: 400px;
+    width: 100%;
+    height: 100%;
+}
+
+.header-top {
+    position: relative;
+    z-index: 99;
 }
 
 .menu {
@@ -237,7 +254,7 @@ body {
     display: none;
     width: 100%;
     overflow: hidden;
-    top: -9px;
+    top: -1em;
     position: relative;
 }
 
@@ -248,13 +265,12 @@ body {
     width: 64%;
     z-index: 3;
     position: relative;
-    overflow: hidden;
-
 }
 
 .menu ul li {
     float: left;
     text-align: center;
+    position:relative;
 }
 
 .menu ul a {
@@ -270,6 +286,39 @@ body {
     font-weight: 700;
     font-size: 13px;
     background-color: #7eabc7;
+}
+
+/* Sous-menu 1 */
+#menu ul ul{
+    position:absolute; left:0; top: 70px;; z-index:99999;
+    display:none; width:180px; float:left;
+    font:lighter 10pt Arial, Helvetica, sans-serif;
+    box-shadow:0px 3px 3px rgba(0,0,0,0.2);
+}
+#menu ul ul li{min-width:180px; background: #0386c5;}
+
+#menu ul ul li:hover {
+    background-color: #468FBE;
+}
+
+/* Sous-menu 2 */
+#menu ul ul ul{left:100%; top:0;}
+#menu ul ul a{
+    background: #0386c5; line-height:1em; padding:10px;
+    width:160px; height:auto;
+}
+#menu ul ul a:hover{
+    background-color: #468FBE;
+}
+#menu li:hover > a,
+#menu ul ul :hover > a{
+    color:#fff;
+}
+#menu ul li:hover > ul{display:block;}
+#menu ul li.current_page_item > a,
+#menu ul li.current-menu-ancestor > a,
+#menu ul li.current-menu-item > a,
+#menu ul li.current-menu-parent > a{
 }
 
 input[type="search"] {
@@ -386,6 +435,15 @@ input::-webkit-input-placeholder {
     position: relative;
     margin-top: 8%;
 }
+.newVideo:after {
+    width: 100%;
+    height: 400px;
+    content: ' ';
+    top: 0;
+    position: absolute;
+    background-color: #2196f3;
+    opacity: 0.4;
+}
 
 .newVideo h1 {
     font-family: 'Raleway', sans-serif;
@@ -479,10 +537,16 @@ input::-webkit-input-placeholder {
 
 
 .allVideo {
-    margin-top: 15%;
+    margin-top: 6%;
     width: 100%;
     position: relative;
     margin-bottom: 9%;
+}
+
+.allVideo .title-section {
+    width: 100%;
+    position: relative;
+    padding: 4%;
 }
 
 .allVideo h1 {
@@ -490,7 +554,7 @@ input::-webkit-input-placeholder {
     position: absolute;
     color: #0B262B;
     left: 44%;
-    top: -3.7%;
+    top: -0%;
     font-size: 34px;
     transform: rotate(-6deg);
     font-weight: 600;
@@ -533,7 +597,7 @@ input::-webkit-input-placeholder {
 .allVideo .video img {
     width: 96%;
     height: 100%;
-    border: #2E6C82 6px solid;
+    border: grey 6px solid;
     cursor: pointer;
 }
 
@@ -551,7 +615,7 @@ input::-webkit-input-placeholder {
 }
 
 .allvideo article:hover {
-    background-color: #9fc1ca;
+    background-color: #2196f3;;
     transition-duration: 0.8s;
 }
 
@@ -632,6 +696,18 @@ input::-webkit-input-placeholder {
     background-image: url('inc/img/fond_footer.png');
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+.footer:after {
+    top: 0;
+    position: absolute;
+    content: ' ';
+    background-color: #2196f3;
+    height: 100%;
+    opacity: 0.3;
+    width: 100%;
+    z-index: 1;
 }
 
 .logo-footer {
@@ -646,6 +722,7 @@ input::-webkit-input-placeholder {
     position: absolute;
     width: 140px;
     bottom: -28px;
+    z-index: 2;
 }
 
 .img-logo-footer {
@@ -656,7 +733,10 @@ input::-webkit-input-placeholder {
 
 #footer-sidebar {
     display:block;
-    height: 250px;
+    max-height: 250px;
+    min-height: 100px;
+    z-index: 2;
+    position: relative;
 }
 
 #footer-sidebar aside {
@@ -714,6 +794,8 @@ input::-webkit-input-placeholder {
     font-weight: 500;
     font-size: 13px;
     clear: both;
+    z-index: 2;
+    position: relative;
 }
 
 
@@ -723,12 +805,12 @@ input::-webkit-input-placeholder {
 */
 
 .single {
-    margin-top: -4%;
+
 }
 
 .single-video {
     background-color: #142a32;
-    height: 550px;
+    height: 560px;
     margin-top: 4%;
 }
 
@@ -862,7 +944,7 @@ input::-webkit-input-placeholder {
 
 
 }
-.comment:hover {
+.share .comment:hover {
     transform: scale(1.25);
     transition-duration: 0.3s;
     box-shadow: 1px 1px 1px black;
@@ -912,6 +994,15 @@ input::-webkit-input-placeholder {
 
 .third-sub-video {
     padding: 30px;
+}
+
+.adv-single {
+    width: 100%;
+}
+
+.adv-single .adv {
+    width: 728px;
+    margin: 0 auto;
 }
 
 .seconde-sub-video {
@@ -1015,10 +1106,12 @@ a:hover span, a:focus span{
 
     .logo {
         margin-top: -10.7%;
+        width: 7em;
+        height: 7rem;
     }
 
     .logo img {
-        width: 330px;
+        width: 100%;
     }
 
     .search {
@@ -1143,9 +1236,11 @@ a:hover span, a:focus span{
 
     .allVideo {
         margin-bottom: 11%;
-        margin-top: 25%;
     }
 
+    .allVideo .title-section {
+        padding: 13%;
+    }
 
     .allVideo h1 {
         color: #0B262B;
@@ -1175,6 +1270,20 @@ a:hover span, a:focus span{
         bottom: -8px;
     }
 
+    .allVideo .adv-index .adv {
+        width: 100%;
+    }
+    .allVideo .adv-index .adv img {
+        width: 100%;
+    }
+    .adv-single .adv {
+        width: 100%;
+        padding-top: 4%;
+    }
+    .adv-single .adv img {
+        width: 100%;
+    }
+
 }
 
 
@@ -1197,12 +1306,10 @@ a:hover span, a:focus span{
     }
 
     .logo img {
-        width: 200px;
-        margin-top: -21%;
+        margin-top: -36%;
     }
 
     .logo {
-        width: 200px;
         margin-top: -0.7%;
     }
 
@@ -1271,6 +1378,7 @@ a:hover span, a:focus span{
         width: 100%;
         padding: 1.1em 0;
         border-bottom: 1px white solid;
+
     }
 
     .menu {
@@ -1304,11 +1412,7 @@ a:hover span, a:focus span{
     }
 
     .sub-video .share {
-        position: absolute;
-        float: left;
-        width: 100%;
-        padding-left: 0%;
-        top: 0%;
+
     }
 
     .first-sub-video {

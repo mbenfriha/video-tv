@@ -12,31 +12,39 @@
                 <div id="next"><?php next_post_link('%link', 'next video <i class="fa fa-caret-right" aria-hidden="true"></i>'); ?> </div>
 
             </div>
-            <?php echo get_post_meta(get_the_ID(), 'jtheme_video_code')[0] ?>
+            <?php echo get_post_meta(get_the_ID(), 'video_tv_code')[0] ?>
 
             <div class="info-video"> <?php the_time('j F Y') ?> in <?php echo the_category(', ')?> </div>
         </div>
     </div>
 
     <div class="sub-video">
-        <div class="first-sub-video">
-            <div class="content">
+        <div class="first-sub-video row">
+            <div class="content col s12 m7">
                 <h1><?php the_title(); ?></h1>
                 <?php the_content() ?>
             </div>
-            <div class="share">
-                <ul>
-                    <li> <a href="http://www.facebook.com/share.php?u=<?php echo urlencode(get_the_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>" target="_blank"><div class="facebook-share">PARTAGER <i class="fa fa-facebook" aria-hidden="true"></i> </div> <a/> </li>
-                    <li> <a href="//twitter.com/share?url=<?php echo urlencode(get_the_permalink()); ?>" target="_blank"><div class="tweeter-share">TWEETER <i class="fa fa-twitter" aria-hidden="true"></i> </div> </a> </li>
-                    <li> <a href="#comment"><div class="comment">COMMENTER <i class="fa fa-commenting-o" aria-hidden="true"></i> </div> </a> </li>
-                </ul>
+            <div class="share col s12 m5">
+                <?php
+                if(is_active_sidebar('single-sub')){
+                    dynamic_sidebar('single-sub');
+                }
+                ?>
             </div>
             <div class="tags">
                 <?php the_tags('Tags: ', ', ', '<br />'); ?>
             </div>
+            <?php
+            if(get_option( 'ad_single', ''))
+                echo '<div class="adv-single">
+                <div class="adv">'
+                    . get_option( 'ad_single', '') .
+                    '</div>
+            </div>';
+            ?>
         </div>
         <div class="seconde-sub-video">
-            <div class="more-video"><h2>LES AUTRES</h2>
+            <div class="more-video"><h2><?php echo get_option( 'single_title', 'OTHERS' ); ?></h2>
                 <ul>
                     <?php
 
@@ -72,9 +80,9 @@
             <?php comments_template(); ?>
         </div>
     </div>
+    <?php get_footer(); ?>
 </div>
 
 
 
 
-<?php get_footer(); ?>

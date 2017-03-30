@@ -5,7 +5,7 @@
 
 
 <div class="newVideo">
-    <h1>NOUVEAUTÉS</h1>
+    <h1><?php echo get_option( 'slider_title', 'NEWEST' ); ?></h1>
 
 
     <div class="slider">
@@ -39,7 +39,9 @@
 
 <div class="allVideo">
 
-    <h1>LES AUTRES</h1>
+    <div class="title-section">
+        <h1><?php echo get_option( 'index_title', 'OTHERS' ); ?></h1>
+    </div>
 
     <div id="content" class="videos">
 
@@ -49,10 +51,11 @@
 
             if( $wp_query->current_post % 4 == 3 ) {
 
-                echo '<div class="adv-index">
-                        <div class="adv">
-                            <img src="http://videopress.theme-titans.com/wp-content/uploads/2014/01/wide.png">
-                        </div>
+                if(get_option( 'ad_index', ''))
+                    echo '<div class="adv-index">
+                        <div class="adv">'
+                        . get_option( 'ad_index', '') .
+                        '</div>
                       </div>';
             }
 

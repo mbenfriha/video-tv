@@ -1,29 +1,11 @@
 <html <?php language_attributes(); ?>>
 <head>
 
-    <title>Linsolite v1.0</title>
+    <title><?= get_bloginfo( 'name' ); ?></title>
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri () ?>/inc/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="apple-touch-icon" sizes="57x57" href="inc/img/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="inc/img/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="inc/img/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="inc/img/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="inc/img/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="inc/img/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="inc/img/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="inc/img/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="inc/img/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="inc/img/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="inc/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="inc/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="inc/img/favicon-16x16.png">
-    <link rel="manifest" href="inc/img/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="inc/img/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
 
 
     <script src="https://use.fontawesome.com/250b302b5a.js"></script>
@@ -34,7 +16,7 @@
 <?php wp_head( ) ?>
     <?php if (have_posts()):while(have_posts()):the_post(); endwhile; endif;?>
     <!-- the default values -->
-    <meta property="fb:app_id" content="683931481746708" />
+    <meta property="fb:app_id" content="1992139823" />
 
     <!-- if page is content page -->
     <?php if (is_single()) { ?>
@@ -48,28 +30,19 @@
     <?php } else { ?>
         <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
         <meta property="og:description" content="<?php bloginfo('description'); ?>" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="http://linsolite.tv/wp-content/uploads/2015/01/trans.png" /> <?php } ?>
+        <meta property="og:type" content="website" /><?php } ?>
 
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-51466246-1', 'auto');
-        ga('send', 'pageview');
 
-    </script>
-
+    <?php echo get_option( 'header_code', '') ?>
 
 </head>
 <body>
 <div id="fb-root"></div>
 <script>
     window.fbAsyncInit = function() {
-        FB.init({appId: '683931481746708', status: true, cookie: true,
+        FB.init({status: true, cookie: true,
             xfbml: true});
     };
     (function() {
@@ -106,8 +79,8 @@
         <ul class="right sociaux-nav">
             <?php
 
-             if (get_option( 'dailymotion_menu', ''))
-            echo '<li><a target="_blank" href="'. get_option( 'dailymotion_menu', '').'"> <i class="fa fa-youtube" aria-hidden="true"></i>  </a></li>';
+             if (get_option( 'youtube_menu', ''))
+            echo '<li><a target="_blank" href="'. get_option( 'youtube_menu', '').'"> <i class="fa fa-youtube" aria-hidden="true"></i>  </a></li>';
 
              if (get_option( 'snapchat_menu', ''))
             echo '<li><a target="_blank" href="'. get_option( 'snapchat_menu', '').'"> <i class="fa fa-snapchat-ghost" aria-hidden="true"></i> </a></li>';
@@ -135,9 +108,9 @@
 
         <?php
         if (get_option( 'top_logo', ''))
-            echo '<div class="logo"><a href="'. esc_url( home_url( '/' )).'"><img src="'.get_option( 'top_logo', '').'" alt="logo linsolite.Tv linsolite tv"></a></div>';
+            echo '<div class="logo"><a href="'. esc_url( home_url( '/' )).'"><img src="'.get_option( 'top_logo', '').'" alt="logo"></a></div>';
         else
-            echo  '<div class="logo"><a href="'. esc_url( home_url( '/' )).'"><img src="'. esc_url( home_url( '/' )). 'wp-content/themes/Linsolite V2/inc/img/logo.png" alt="logo linsolite.Tv linsolite tv"></a></div>';
+            echo  '<div class="logo"><a href="'. esc_url( home_url( '/' )).'"><img src="'. esc_url( home_url( '/' )). 'wp-content/themes/video-tv/inc/img/logo_footer.png" alt="logo"></a></div>';
 
         ?>
 
@@ -146,17 +119,52 @@
     </div>
 
 
+    <style>
+        .menu {
+            background-color: <?php echo get_option( 'color-menu-top', '') ?>;
+        }
+        #menu ul ul li {
+            background: <?php echo get_option( 'color-menu-top', '') ?>;
+        }
+        #menu ul ul a  {
+            background: <?php echo get_option( 'color-menu-top', '') ?>;
+        }
+        .menu ul a:hover {
+            background-color: #7eabc7;
+        }
+        .nav ul li a {
+            color: <?php echo get_option( 'color-social-top', '') ?>; !important;
+        }
+        .newVideo:after {
+            background-color: <?php echo get_option( 'color-slider', '#2196f3') ?>; !important;
+        }
+        .footer:after {
+            background-color: <?php echo get_option( 'color-footer', '#2196f3') ?>; !important;
+        }
+        .single-video {
+            background-color: <?php echo get_option( 'color-video', '#2196f3') ?>; !important;
+        }
+
+        .prev-next a {
+            color: <?php echo get_option( 'single_color_navigation-video', 'black') ?>; !important;
+        }
+        .info-video a {
+            color: <?php echo get_option( 'single_color_navigation-video', 'black') ?>; !important;
+        }
+        .allvideo article:hover {
+            background-color: <?php echo get_option( 'color-social-top', '') ?>; !important;
+        }
+
+    </style>
     <?php wp_nav_menu( array( 'theme_location' => 'Top', 'container_class' => 'menu', 'container_id' => 'menu', 'menu_class' => '' ) ); ?>
 
 <?php
 
 if (get_option( 'send_button', '')) {
-    echo '<a href="'. get_option( 'send_button', '') .'"><img class="img-upload" src="' . esc_url(home_url('/')) . 'wp-content/themes/Linsolite V2/inc/img/envoyer_video.png" alt=""> </li></a>';
+    echo '<a href="'. get_option( 'send_button', '') .'"><img class="img-upload" src="' . esc_url(home_url('/')) . 'wp-content/themes/video-tv/inc/img/envoyer_video.png" alt=""> </li></a>';
 }
 
 ?>
-
-
 
 </div>
 

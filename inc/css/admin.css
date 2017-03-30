@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+textarea {
+    width: 100%;
+}
+
+.main-admin {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.main-admin h1 {
+   background-color: #fba48b;
+    padding: 2% 2%;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    border-bottom: 1px solid rgba(197, 197, 197, 0.75);
+}
+
+.section-admin h2 {
+    font-size: 1.3em;
+    margin: 1em 0;
+    background-color: #b296c7;
+    padding: 2%;
+    color: white;
+}
+
+.section-admin {
+    display: block;
+    margin-bottom: 3%;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 1px 4px 0 rgba(0, 0, 0, .08), 0 3px 1px -2px rgba(0, 0, 0, .2);
+    padding: 2%;
+    height: auto;
+    background-color: white;
+}
+
+.main-admin i {
+    float: right;
+    cursor: pointer;
+
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 9px 22px;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 20px;
+    color: #fff;
+    background-color: #ff8f6f;
+    box-shadow: 0px 5px 0px 0px #ff7f67;
+    border: none;
+    cursor: pointer
+}
+
+.btn:active{
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+}
+
+.btn:hover {
+    background-color: #fba48b;
+}
+
+.section-admin input[type=text] {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: white;
+    box-shadow: none;
+}

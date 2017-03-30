@@ -7,7 +7,7 @@
             if (get_option( 'top_logo', ''))
                 echo '<img src="'.get_option( 'footer_logo', '').'" alt="">';
             else
-                echo  '<img src="'.esc_url( home_url( '/' )).'wp-content/themes/Linsolite V2/inc/img/logo_footer.png" alt="">';
+                echo  '<img src="'.esc_url( home_url( '/' )).'wp-content/themes/video-tv/inc/img/logo_footer.png" alt="">';
 
             ?>
 
@@ -40,18 +40,21 @@
     </div>
 
 
-    <div class="copyright">2016 © LINSOLITE.TV V2.2.3 Tous droits réservés - DESIGN BY <a target="_blank" href="http://www.juliencottaz-design.com">JULIEN COTTAZ </a></div>
+    <div class="copyright">2017 © Wordpress template - VideoTV V1.0 Tous droits réservés </div>
 </div>
 
 
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri () ?>/inc/js/jquery.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="<?php echo get_template_directory_uri () ?>/inc/js/materialize.min.js"></script>
 
 <script type="text/javascript" src="<?php echo get_template_directory_uri () ?>/app.js"></script>
 
 
 </body>
 </html>
+
+
+<?php wp_footer(); ?>

@@ -6,7 +6,7 @@
  *
  * @package WordPress
  * @subpackage Linsolite
- * @since Linsolite.tv 2.0
+ * @since Linsolite.tv 1.0
  */
 ?>
 
@@ -18,7 +18,7 @@
 
     <div class="excerpt">
         <a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
-        <span class="infos">Mise en ligne le <?php the_time('j F Y') ?> dans la catégorie animaux</span>
+        <span class="infos">Mise en ligne le <?php the_time('j F Y') ?> in <?php the_category( ', ' ); ?></span>
 
         <p><?php the_excerpt() ?></p>
 

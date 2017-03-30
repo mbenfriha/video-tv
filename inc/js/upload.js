@@ -1,7 +1,20 @@
 jQuery(document).ready(function($){
 
 
+
     var custom_uploader;
+
+    $('.color-field').wpColorPicker();
+
+
+    $('h1').click(function() {
+        $(this).next('.section-admin').slideToggle();
+    });
+
+    $('#toggleAll').click(function(){
+        $('.section-admin').slideToggle();
+    })
+
 
 
     $('.upload_image_button').click(function(e) {

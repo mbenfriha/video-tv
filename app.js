@@ -69,15 +69,15 @@
                         'z-index': '99',
                         'top': '0%'
                     });
-                    $(".logo img").css({'width': '180px', 'transition-duration': '0.4s'});
-                    $(".logo").css({'width': '180px', 'margin-top': '-0.7%', 'transition-duration': '0.4s'});
+                    $(".logo img").css({'width': '7em', 'transition-duration': '0.4s', height: '6em'});
+                    $(".logo").css({'width': '7em', 'margin-top': '-0.7%', 'transition-duration': '0.4s'});
                     $(".menu").css({'width': '100%', 'position': 'fixed', 'margin-top': '0%', 'top': 'initial'})
                 }
                 else {
                     $(".nav").css({"position": "relative", 'margin-top': '0%', 'z-index': '2'});
-                    $(".logo img").css({'width': '400px'});
-                    $(".logo").css({'width': '400px', 'margin-top': '-5.7%'});
-                    $(".menu").css({'width': '100%', 'position': 'relative', 'margin-top': '0%', 'top': '-9px'})
+                    $(".logo img").css({'width': '10em', height: '10em'});
+                    $(".logo").css({'width': '10em', 'margin-top': '-3.7%', 'height': '10rem'});
+                    $(".menu").css({'width': '100%', 'position': 'relative', 'margin-top': '0%', 'top': '-1em'})
                 }
             }
         });
